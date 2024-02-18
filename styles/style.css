@@ -4,3 +4,11 @@
 .font-inter{
     font-family: "Inter", sans-serif;
 }
+.text-green{
+    color: #1DD100;
+}
+.btn-green{
+    background-color: #1DD100;
+    padding: 15px 25px;
+    border-radius: 12px;
+}
