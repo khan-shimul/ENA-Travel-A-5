@@ -17,6 +17,53 @@ function setInnerTextById (id, newValue) {
     element.innerText = newValue;
 }
 
+// Handle Next
+function handleSuccess () {
+    const ticketBookedStr = searchElementById('ticket-booked').innerText;
+    const ticketBooked = parseInt(ticketBookedStr);
+    if(ticketBooked > 0) {
+        my_modal_5.showModal();
+
+
+    }
+    else{
+        alert('Please get your ticket first')
+    }
+}
+
+// Apply Cupon Code
+function applyCupon () {
+    const cuponInputValue = searchElementById('cupon-input').value;
+    const currentGrandTotalStr = searchElementById('grand-total').innerText;
+    const currentGrandTotal = parseInt(currentGrandTotalStr);
+    
+    if(cuponInputValue === 'NEW15'){
+        const discount = currentGrandTotal / 100 * 15;
+        const newGrandTotal = currentGrandTotal - discount;
+        setInnerTextById('grand-total', Math.round(newGrandTotal));
+        // Hidden Cupon
+        searchElementById('cupon-container').classList.add('hidden');
+    }
+    else if(cuponInputValue === 'Couple 20') {
+        const discount = currentGrandTotal / 100 * 20;
+        const newGrandTotal = currentGrandTotal - discount;
+        setInnerTextById('grand-total', Math.round(newGrandTotal));
+        // Hidden Cupon
+        searchElementById('cupon-container').classList.add('hidden');
+    }
+    else {
+        alert('Please give us a valid cupon');
+        searchElementById('cupon-input').value = ''
+    }
+}
+
+// Calculate grand total
+function grandTotal (total) {
+    const grandTotalElement = searchElementById('grand-total');
+    const grandTotalNumber = parseInt(grandTotalElement.innerText);
+    setInnerTextById('grand-total', total);
+}
+
 // Calculate Total
 function calculateTotal (priceStr) {
     const price = parseInt(priceStr);
@@ -24,6 +71,8 @@ function calculateTotal (priceStr) {
     const totalPriceNumber = parseInt(totalElement.innerText)
     const total = totalPriceNumber + price;
     setInnerTextById('total-price', total);
+    grandTotal(total);
+    
 }
 
 // Append Child
@@ -56,14 +105,11 @@ function appendElement (id) {
     calculateTotal(PriceString)
 }
 
-// function calculateTotal ()
-
 // Event Handler
 document.getElementById('seat-container').addEventListener('click', function (e) {
     // If User Clicked
     const userClicked = e.target;
     const userClickedValue = userClicked.innerText.toLowerCase();
-    // console.log(userClickedValue);
     // Current Seat Number
     const currentSeat = searchElementById('current-available-seat');
     const currentSeatNumber = parseInt(currentSeat.innerText);
@@ -89,5 +135,4 @@ document.getElementById('seat-container').addEventListener('click', function (e)
         alert('You already get 4 tickets');
         return
     }
-
 })
