@@ -97,39 +97,53 @@
             <button class="btn btn-outline text-green font-medium px-8 mt-10 mb-20 flex mx-auto">See All Offers</button>
         </section>
         <!-- Tickets Details Section Start -->
-        <!-- <section class="bg-[#F7F8F8] border-t-4 rounded-t-3xl border-[#1DD100] py-10"> -->
-          <!-- Destination -->
-          <div class="destination-container">
-            <div class="text-center">
-              <h3 class="text-4xl font-bold">ENA Travel Bus</h3>
-              <p class="py-4">Yes, you can run unit tests and view the results directly within the app. The integrated <br> testing features allow for a streamlined .</p>
-            </div>
-            <!-- Destination Details -->
-            <div class="flex flex-col lg:flex-row items-center gap-x-10 mx-5 lg:mx-20 bg-white p-10 rounded-3xl">
-              <div class="flex flex-col lg:flex-row items-center justify-between gap-x-4 w-full lg:w-[800px]">
-                <!-- Travel Paribahan Title -->
-                <div class="flex flex-col lg:flex-row items-center gap-x-5">
-                  <img src="./images/bus-logo.png" alt="">
+       <section class="tickets-container py-10 rounded-3xl border-t-4 bg-[#F7F8F8] border-[#1DD100]">
+        <!-- Heading -->
+        <div class="text-center">
+          <h3 class="text-4xl font-bold">ENA Travel Bus</h3>
+          <p class="py-4">Yes, you can run unit tests and view the results directly within the app. The integrated <br> testing features allow for a streamlined .</p>
+        </div>
+        <!-- Destination Container -->
+        <div class="destination-container mx-24 flex justify-between items-center">
+          <!-- Left Content Container -->
+          <div class="left-content-container rounded-2xl w-full lg:w-[950px] p-10 bg-white">
+            <!-- Title -->
+            <div class="title-container flex justify-between">
+              <div class="flex items-center gap-4">
+                <img src="./images/bus-logo.png" alt="">
                 <div>
-                  <h3 class="text-3xl font-bold dark-text">ENA Paribahan</h3>
+                  <h3 class="font-bold text-4xl">ENA Paribahan</h3>
                   <p class="text-gray-500">Coach-009-WEB ! AC_Business</p>
                 </div>
-                </div>
-              <div>
-                <button class="btn btn-outline text-green font-inter">
-                  <img src="./images/seat-green.png" alt="">
-                  <span>40</span>
-                  Seat Left
-                </button>
               </div>
+              <button class="btn">40seat</button>
+            </div>
+            <!-- Route Container -->
+            <div class="route-container p-8 rounded-2xl mt-2 bg-[#F7F8F8]">
+              <!-- Route-1 -->
+              <div class="flex justify-between text-lg font-semibold border-b-2 border-dashed mb-8">
+                <p class="text-gray-500">Route</p>
+                <p class="text-gray-800 pb-2">Dhaka - Sylhet</p>
               </div>
-              <!-- Right Elements -->
-              <div>
-                <h3>550 taka per seat</h3>
+              <!-- Route-2 -->
+              <div class="flex justify-between text-lg font-semibold border-b-2 border-dashed mb-8">
+                <p class="text-gray-500">Departure Time</p>
+                <p class="text-gray-800 pb-2">9:00 PM</p>
+              </div>
+              <!-- Route-3 -->
+              <div class="flex justify-between text-lg font-semibold">
+                <button class="btn text-gray-500">Boarding Point - Laxmipur</button>
+                <button class="btn text-gray-500">Dropping Point - Bogura</button>
+                <button class="btn text-gray-500">Est. Time - 11 Hour</button>
               </div>
             </div>
           </div>
-        <!-- </section> -->
+          <!-- Right Content -->
+          <div class="right-content">
+            <h1>550tk per seat</h1>
+          </div>
+        </div>
+       </section>
     </main>
     <footer>
 
