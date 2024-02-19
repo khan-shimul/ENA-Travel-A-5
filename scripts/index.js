@@ -1,33 +1,3 @@
-// Append Child
-function appendElement (id) {
-    const element = searchElementById(id);
-    const elementValue = element.innerText;
-    const ticketDetailsContainer = searchElementById('ticket-details');
-    // Create Element and Append
-    const div = document.createElement('div');
-    const h5_1 = document.createElement('h5');
-    const h5_2 = document.createElement('h5');
-    const h5_3 = document.createElement('h5');
-    ticketDetailsContainer.appendChild(div);
-    // Add Class List
-    div.classList.add('flex');
-    div.classList.add('justify-between');
-    div.classList.add('items-center');
-    div.classList.add('text-gray-500');
-    div.classList.add('mt-3');
-    // Set the Value
-    h5_1.innerText = elementValue;
-    h5_2.innerText = 'Economy';
-    h5_3.innerText = 550;
-    // Append them to the div
-    div.appendChild(h5_1)
-    div.appendChild(h5_2)
-    div.appendChild(h5_3)
-    
-}
-
-
-
 // Get Element By Id
 function searchElementById (id) {
     const element = document.getElementById(id);
@@ -47,7 +17,49 @@ function setInnerTextById (id, newValue) {
     element.innerText = newValue;
 }
 
-document.getElementById('seat-container').addEventListener('click', function handleTicketClick (e) {
+// Calculate Total
+function calculateTotal (priceStr) {
+    const price = parseInt(priceStr);
+    const totalElement = searchElementById('total-price');
+    const totalPriceNumber = parseInt(totalElement.innerText)
+    const total = totalPriceNumber + price;
+    setInnerTextById('total-price', total);
+}
+
+// Append Child
+function appendElement (id) {
+    const element = searchElementById(id);
+    const elementValue = element.innerText;
+    const ticketDetailsContainer = searchElementById('ticket-details');
+    // Create Element and Append
+    const div = document.createElement('div');
+    const h5_1 = document.createElement('h5');
+    const h5_2 = document.createElement('h5');
+    const p = document.createElement('p');
+    ticketDetailsContainer.appendChild(div);
+    // Add Class List
+    div.classList.add('flex');
+    div.classList.add('justify-between');
+    div.classList.add('items-center');
+    div.classList.add('text-gray-500');
+    div.classList.add('mt-3');
+    // Set the Value
+    h5_1.innerText = elementValue;
+    h5_2.innerText = 'Economy';
+    p.innerText = '550';
+    // Append them to the div
+    div.appendChild(h5_1);
+    div.appendChild(h5_2);
+    div.appendChild(p);
+    const PriceString = p.innerText;
+    // Call the calc total func
+    calculateTotal(PriceString)
+}
+
+// function calculateTotal ()
+
+// Event Handler
+document.getElementById('seat-container').addEventListener('click', function (e) {
     // If User Clicked
     const userClicked = e.target;
     const userClickedValue = userClicked.innerText.toLowerCase();
@@ -71,6 +83,7 @@ document.getElementById('seat-container').addEventListener('click', function han
         // Call the append child func
         appendElement(userClickedValue);
     }
+    
     // Set Error Msg
     if(currentSeatNumber === 4){
         alert('You already get 4 tickets');
