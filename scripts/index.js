@@ -107,7 +107,6 @@ function appendElement (id) {
 document.getElementById('seat-container').addEventListener('click', function (e) {
     // If User Clicked
     const userClicked = e.target;
-    console.log(userClicked)
     const userClickedValue = userClicked.innerText.toLowerCase();
     // Current Seat Number
     const currentSeat = searchElementById('current-available-seat');
