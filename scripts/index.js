@@ -23,8 +23,6 @@ function handleSuccess () {
     const ticketBooked = parseInt(ticketBookedStr);
     if(ticketBooked > 0) {
         my_modal_5.showModal();
-
-
     }
     else{
         alert('Please get your ticket first')
@@ -135,4 +133,8 @@ document.getElementById('seat-container').addEventListener('click', function (e)
         alert('You already get 4 tickets');
         return
     }
+});
+// Clear Previous Activities
+searchElementById('next').addEventListener('click', function () {
+    window.location.reload();
 })
